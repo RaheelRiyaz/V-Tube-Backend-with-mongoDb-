@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "q4l88nJwSQKxCrd1U1ihSEpCu85qKO16qhHeRbOuVNc=",
+  "Hash": "djoUHRoc7EScPX2IjCMM82SZaqTIjv14zdwv8579UIE=",
   "Source": "FirstApp",
   "BasePath": "_content/FirstApp",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "FirstApp\\wwwroot",
       "Source": "FirstApp",
-      "ContentRoot": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp\\wwwroot\\",
+      "ContentRoot": "D:\\localRepository\\V-Tube-Backend-with-mongoDb-\\FirstApp\\wwwroot\\",
       "BasePath": "_content/FirstApp",
       "Pattern": "**"
     }

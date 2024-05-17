@@ -10,3 +10,16 @@ D:\DotnetwithMongoDB\FirstApp\FirstApp.Domain\obj\Debug\net8.0\FirstApp.Domain.d
 D:\DotnetwithMongoDB\FirstApp\FirstApp.Domain\obj\Debug\net8.0\refint\FirstApp.Domain.dll
 D:\DotnetwithMongoDB\FirstApp\FirstApp.Domain\obj\Debug\net8.0\FirstApp.Domain.pdb
 D:\DotnetwithMongoDB\FirstApp\FirstApp.Domain\obj\Debug\net8.0\ref\FirstApp.Domain.dll
+D:\localRepository\V-Tube-Backend-with-mongoDb-\FirstApp.Domain\bin\Debug\net8.0\FirstApp.Domain.deps.json
+D:\localRepository\V-Tube-Backend-with-mongoDb-\FirstApp.Domain\bin\Debug\net8.0\FirstApp.Domain.dll
+D:\localRepository\V-Tube-Backend-with-mongoDb-\FirstApp.Domain\bin\Debug\net8.0\FirstApp.Domain.pdb
+D:\localRepository\V-Tube-Backend-with-mongoDb-\FirstApp.Domain\obj\Debug\net8.0\FirstApp.Domain.csproj.AssemblyReference.cache
+D:\localRepository\V-Tube-Backend-with-mongoDb-\FirstApp.Domain\obj\Debug\net8.0\FirstApp.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\localRepository\V-Tube-Backend-with-mongoDb-\FirstApp.Domain\obj\Debug\net8.0\FirstApp.Domain.AssemblyInfoInputs.cache
+D:\localRepository\V-Tube-Backend-with-mongoDb-\FirstApp.Domain\obj\Debug\net8.0\FirstApp.Domain.AssemblyInfo.cs
+D:\localRepository\V-Tube-Backend-with-mongoDb-\FirstApp.Domain\obj\Debug\net8.0\FirstApp.Domain.csproj.CoreCompileInputs.cache
+D:\localRepository\V-Tube-Backend-with-mongoDb-\FirstApp.Domain\obj\Debug\net8.0\FirstApp.Domain.sourcelink.json
+D:\localRepository\V-Tube-Backend-with-mongoDb-\FirstApp.Domain\obj\Debug\net8.0\FirstApp.Domain.dll
+D:\localRepository\V-Tube-Backend-with-mongoDb-\FirstApp.Domain\obj\Debug\net8.0\refint\FirstApp.Domain.dll
+D:\localRepository\V-Tube-Backend-with-mongoDb-\FirstApp.Domain\obj\Debug\net8.0\FirstApp.Domain.pdb
+D:\localRepository\V-Tube-Backend-with-mongoDb-\FirstApp.Domain\obj\Debug\net8.0\ref\FirstApp.Domain.dll
