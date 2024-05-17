@@ -1,0 +1,373 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp\\FirstApp.csproj": {}
+  },
+  "projects": {
+    "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Application\\FirstApp.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Application\\FirstApp.Application.csproj",
+        "projectName": "FirstApp.Application",
+        "projectPath": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Application\\FirstApp.Application.csproj",
+        "packagesPath": "C:\\Users\\EliteBook\\.nuget\\packages\\",
+        "outputPath": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\EliteBook\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Domain\\FirstApp.Domain.csproj": {
+                "projectPath": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Domain\\FirstApp.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "BCrypt.Net-Core": {
+              "target": "Package",
+              "version": "[1.6.0, )"
+            },
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.26.2, )"
+            },
+            "MediaInfo.DotNetWrapper": {
+              "target": "Package",
+              "version": "[1.0.7, )"
+            },
+            "MediaInfoDotNet": {
+              "target": "Package",
+              "version": "[0.7.79.40925, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.WindowsAPICodePack.Shell": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "NReco.VideoInfo": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Domain\\FirstApp.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Domain\\FirstApp.Domain.csproj",
+        "projectName": "FirstApp.Domain",
+        "projectPath": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Domain\\FirstApp.Domain.csproj",
+        "packagesPath": "C:\\Users\\EliteBook\\.nuget\\packages\\",
+        "outputPath": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\EliteBook\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "MongoDB.Bson": {
+              "target": "Package",
+              "version": "[2.25.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Infrastrcuture\\FirstApp.Infrastrcuture.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Infrastrcuture\\FirstApp.Infrastrcuture.csproj",
+        "projectName": "FirstApp.Infrastrcuture",
+        "projectPath": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Infrastrcuture\\FirstApp.Infrastrcuture.csproj",
+        "packagesPath": "C:\\Users\\EliteBook\\.nuget\\packages\\",
+        "outputPath": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Infrastrcuture\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\EliteBook\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Application\\FirstApp.Application.csproj": {
+                "projectPath": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Application\\FirstApp.Application.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.26.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Persistence\\FirstApp.Persistence.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Persistence\\FirstApp.Persistence.csproj",
+        "projectName": "FirstApp.Persistence",
+        "projectPath": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Persistence\\FirstApp.Persistence.csproj",
+        "packagesPath": "C:\\Users\\EliteBook\\.nuget\\packages\\",
+        "outputPath": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Persistence\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\EliteBook\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Application\\FirstApp.Application.csproj": {
+                "projectPath": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Application\\FirstApp.Application.csproj"
+              },
+              "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Domain\\FirstApp.Domain.csproj": {
+                "projectPath": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Domain\\FirstApp.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.25.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp\\FirstApp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp\\FirstApp.csproj",
+        "projectName": "FirstApp",
+        "projectPath": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp\\FirstApp.csproj",
+        "packagesPath": "C:\\Users\\EliteBook\\.nuget\\packages\\",
+        "outputPath": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\EliteBook\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Application\\FirstApp.Application.csproj": {
+                "projectPath": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Application\\FirstApp.Application.csproj"
+              },
+              "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Infrastrcuture\\FirstApp.Infrastrcuture.csproj": {
+                "projectPath": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Infrastrcuture\\FirstApp.Infrastrcuture.csproj"
+              },
+              "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Persistence\\FirstApp.Persistence.csproj": {
+                "projectPath": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Persistence\\FirstApp.Persistence.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

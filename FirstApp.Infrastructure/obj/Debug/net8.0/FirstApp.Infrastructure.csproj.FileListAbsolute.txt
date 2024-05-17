@@ -1,0 +1,11 @@
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Infrastructure\bin\Debug\net8.0\FirstApp.Infrastructure.deps.json
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Infrastructure\bin\Debug\net8.0\FirstApp.Infrastructure.dll
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Infrastructure\bin\Debug\net8.0\FirstApp.Infrastructure.pdb
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Infrastructure\obj\Debug\net8.0\FirstApp.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Infrastructure\obj\Debug\net8.0\FirstApp.Infrastructure.AssemblyInfoInputs.cache
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Infrastructure\obj\Debug\net8.0\FirstApp.Infrastructure.AssemblyInfo.cs
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Infrastructure\obj\Debug\net8.0\FirstApp.Infrastructure.csproj.CoreCompileInputs.cache
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Infrastructure\obj\Debug\net8.0\FirstApp.Infrastructure.dll
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Infrastructure\obj\Debug\net8.0\refint\FirstApp.Infrastructure.dll
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Infrastructure\obj\Debug\net8.0\FirstApp.Infrastructure.pdb
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Infrastructure\obj\Debug\net8.0\ref\FirstApp.Infrastructure.dll

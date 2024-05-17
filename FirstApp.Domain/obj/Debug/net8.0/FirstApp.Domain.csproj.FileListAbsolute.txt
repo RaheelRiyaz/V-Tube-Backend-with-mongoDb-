@@ -1,0 +1,12 @@
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Domain\bin\Debug\net8.0\FirstApp.Domain.deps.json
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Domain\bin\Debug\net8.0\FirstApp.Domain.dll
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Domain\bin\Debug\net8.0\FirstApp.Domain.pdb
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Domain\obj\Debug\net8.0\FirstApp.Domain.csproj.AssemblyReference.cache
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Domain\obj\Debug\net8.0\FirstApp.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Domain\obj\Debug\net8.0\FirstApp.Domain.AssemblyInfoInputs.cache
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Domain\obj\Debug\net8.0\FirstApp.Domain.AssemblyInfo.cs
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Domain\obj\Debug\net8.0\FirstApp.Domain.csproj.CoreCompileInputs.cache
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Domain\obj\Debug\net8.0\FirstApp.Domain.dll
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Domain\obj\Debug\net8.0\refint\FirstApp.Domain.dll
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Domain\obj\Debug\net8.0\FirstApp.Domain.pdb
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Domain\obj\Debug\net8.0\ref\FirstApp.Domain.dll

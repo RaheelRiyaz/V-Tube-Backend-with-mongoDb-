@@ -1,0 +1,17 @@
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Persistence\bin\Debug\net8.0\FirstApp.Persistence.deps.json
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Persistence\bin\Debug\net8.0\FirstApp.Persistence.dll
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Persistence\bin\Debug\net8.0\FirstApp.Persistence.pdb
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Persistence\bin\Debug\net8.0\FirstApp.Application.dll
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Persistence\bin\Debug\net8.0\FirstApp.Domain.dll
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Persistence\bin\Debug\net8.0\FirstApp.Application.pdb
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Persistence\bin\Debug\net8.0\FirstApp.Domain.pdb
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Persistence\obj\Debug\net8.0\FirstApp.Persistence.csproj.AssemblyReference.cache
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Persistence\obj\Debug\net8.0\FirstApp.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Persistence\obj\Debug\net8.0\FirstApp.Persistence.AssemblyInfoInputs.cache
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Persistence\obj\Debug\net8.0\FirstApp.Persistence.AssemblyInfo.cs
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Persistence\obj\Debug\net8.0\FirstApp.Persistence.csproj.CoreCompileInputs.cache
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Persistence\obj\Debug\net8.0\FirstApp.Persistence.csproj.CopyComplete
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Persistence\obj\Debug\net8.0\FirstApp.Persistence.dll
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Persistence\obj\Debug\net8.0\refint\FirstApp.Persistence.dll
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Persistence\obj\Debug\net8.0\FirstApp.Persistence.pdb
+D:\DotnetwithMongoDB\FirstApp\FirstApp.Persistence\obj\Debug\net8.0\ref\FirstApp.Persistence.dll

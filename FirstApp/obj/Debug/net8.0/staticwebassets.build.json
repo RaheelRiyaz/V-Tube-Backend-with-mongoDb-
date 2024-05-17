@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "q4l88nJwSQKxCrd1U1ihSEpCu85qKO16qhHeRbOuVNc=",
+  "Source": "FirstApp",
+  "BasePath": "_content/FirstApp",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "FirstApp\\wwwroot",
+      "Source": "FirstApp",
+      "ContentRoot": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp\\wwwroot\\",
+      "BasePath": "_content/FirstApp",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}

@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp\\wwwroot\\Files\\video (1080p).mp4",
+      "PackagePath": "staticwebassets\\Files\\video (1080p).mp4"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.FirstApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.FirstApp.props",
+      "PackagePath": "build\\FirstApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.FirstApp.props",
+      "PackagePath": "buildMultiTargeting\\FirstApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.FirstApp.props",
+      "PackagePath": "buildTransitive\\FirstApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
