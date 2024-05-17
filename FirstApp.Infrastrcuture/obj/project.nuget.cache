@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "39wLPBve4w2Hu0CRfqMo8LpT+SnIZP8z1Y9lOqyEdUFrb5TmaQ8s9q6CTXftr07y+xm03hcnqCfwfFFBmcjCAA==",
+  "dgSpecHash": "aXS046JppT1T/RZh7HS/Dlk2px1lCVErYQ+nfxOdfgMaiG5qaWvRSL5zDXF+l5YSC88Qe44k8lKAWcjdFsyKog==",
   "success": true,
-  "projectFilePath": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Infrastrcuture\\FirstApp.Infrastrcuture.csproj",
+  "projectFilePath": "D:\\localRepository\\V-Tube-Backend-with-mongoDb-\\FirstApp.Infrastrcuture\\FirstApp.Infrastrcuture.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\EliteBook\\.nuget\\packages\\bcrypt.net-core\\1.6.0\\bcrypt.net-core.1.6.0.nupkg.sha512",
     "C:\\Users\\EliteBook\\.nuget\\packages\\cloudinarydotnet\\1.26.2\\cloudinarydotnet.1.26.2.nupkg.sha512",

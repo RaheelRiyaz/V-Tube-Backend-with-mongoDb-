@@ -6535,11 +6535,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp\\FirstApp.csproj",
+      "projectUniqueName": "D:\\localRepository\\V-Tube-Backend-with-mongoDb-\\FirstApp\\FirstApp.csproj",
       "projectName": "FirstApp",
-      "projectPath": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp\\FirstApp.csproj",
+      "projectPath": "D:\\localRepository\\V-Tube-Backend-with-mongoDb-\\FirstApp\\FirstApp.csproj",
       "packagesPath": "C:\\Users\\EliteBook\\.nuget\\packages\\",
-      "outputPath": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp\\obj\\",
+      "outputPath": "D:\\localRepository\\V-Tube-Backend-with-mongoDb-\\FirstApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\EliteBook\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6556,14 +6556,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Application\\FirstApp.Application.csproj": {
-              "projectPath": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Application\\FirstApp.Application.csproj"
+            "D:\\localRepository\\V-Tube-Backend-with-mongoDb-\\FirstApp.Application\\FirstApp.Application.csproj": {
+              "projectPath": "D:\\localRepository\\V-Tube-Backend-with-mongoDb-\\FirstApp.Application\\FirstApp.Application.csproj"
             },
-            "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Infrastrcuture\\FirstApp.Infrastrcuture.csproj": {
-              "projectPath": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Infrastrcuture\\FirstApp.Infrastrcuture.csproj"
+            "D:\\localRepository\\V-Tube-Backend-with-mongoDb-\\FirstApp.Infrastrcuture\\FirstApp.Infrastrcuture.csproj": {
+              "projectPath": "D:\\localRepository\\V-Tube-Backend-with-mongoDb-\\FirstApp.Infrastrcuture\\FirstApp.Infrastrcuture.csproj"
             },
-            "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Persistence\\FirstApp.Persistence.csproj": {
-              "projectPath": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Persistence\\FirstApp.Persistence.csproj"
+            "D:\\localRepository\\V-Tube-Backend-with-mongoDb-\\FirstApp.Persistence\\FirstApp.Persistence.csproj": {
+              "projectPath": "D:\\localRepository\\V-Tube-Backend-with-mongoDb-\\FirstApp.Persistence\\FirstApp.Persistence.csproj"
             }
           }
         }

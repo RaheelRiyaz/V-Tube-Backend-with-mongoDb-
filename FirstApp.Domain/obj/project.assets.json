@@ -130,11 +130,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Domain\\FirstApp.Domain.csproj",
+      "projectUniqueName": "D:\\localRepository\\V-Tube-Backend-with-mongoDb-\\FirstApp.Domain\\FirstApp.Domain.csproj",
       "projectName": "FirstApp.Domain",
-      "projectPath": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Domain\\FirstApp.Domain.csproj",
+      "projectPath": "D:\\localRepository\\V-Tube-Backend-with-mongoDb-\\FirstApp.Domain\\FirstApp.Domain.csproj",
       "packagesPath": "C:\\Users\\EliteBook\\.nuget\\packages\\",
-      "outputPath": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Domain\\obj\\",
+      "outputPath": "D:\\localRepository\\V-Tube-Backend-with-mongoDb-\\FirstApp.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\EliteBook\\AppData\\Roaming\\NuGet\\NuGet.Config",

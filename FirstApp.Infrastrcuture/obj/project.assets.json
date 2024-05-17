@@ -5281,11 +5281,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Infrastrcuture\\FirstApp.Infrastrcuture.csproj",
+      "projectUniqueName": "D:\\localRepository\\V-Tube-Backend-with-mongoDb-\\FirstApp.Infrastrcuture\\FirstApp.Infrastrcuture.csproj",
       "projectName": "FirstApp.Infrastrcuture",
-      "projectPath": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Infrastrcuture\\FirstApp.Infrastrcuture.csproj",
+      "projectPath": "D:\\localRepository\\V-Tube-Backend-with-mongoDb-\\FirstApp.Infrastrcuture\\FirstApp.Infrastrcuture.csproj",
       "packagesPath": "C:\\Users\\EliteBook\\.nuget\\packages\\",
-      "outputPath": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Infrastrcuture\\obj\\",
+      "outputPath": "D:\\localRepository\\V-Tube-Backend-with-mongoDb-\\FirstApp.Infrastrcuture\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\EliteBook\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5302,8 +5302,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Application\\FirstApp.Application.csproj": {
-              "projectPath": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp.Application\\FirstApp.Application.csproj"
+            "D:\\localRepository\\V-Tube-Backend-with-mongoDb-\\FirstApp.Application\\FirstApp.Application.csproj": {
+              "projectPath": "D:\\localRepository\\V-Tube-Backend-with-mongoDb-\\FirstApp.Application\\FirstApp.Application.csproj"
             }
           }
         }
