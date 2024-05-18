@@ -80,26 +80,26 @@ namespace FirstApp.Application.Services
                         return APIResponse<int>.ErrorResponse("Video id is required in this case");
                     var videoID = ObjectId.Parse(model.VideoId);
 
-                    var videLike = await repository.FirstOrDefaultAsync
+                    var videoLike = await repository.FirstOrDefaultAsync
                         (_ => _.VideoId == videoID && _.UserId == userId && _.LikeType == LikeType.Video);
 
-                    if(videLike is not null)
+                    if(videoLike is not null)
                     {
-                        if (videLike.IsLiked == model.IsLiked)
+                        if (videoLike.IsLiked == model.IsLiked)
                             return APIResponse<int>.ErrorResponse("ALready responsed to this video");
 
                         if(model.IsLiked is null)
                         {
-                            var deleteVideoLikeResponse = await repository.DeleteAsync(videLike.Id);
+                            var deleteVideoLikeResponse = await repository.DeleteAsync(videoLike.Id);
 
                             return deleteVideoLikeResponse > 0 ? APIResponse<int>.SuccessResponse(deleteVideoLikeResponse, "Video response deleted") :
                                 APIResponse<int>.ErrorResponse();
                         }
 
-                        videLike.IsLiked = Convert.ToBoolean(model.IsLiked);
-                        videLike.UpdatedAt = DateTime.Now;
+                        videoLike.IsLiked = Convert.ToBoolean(model.IsLiked);
+                        videoLike.UpdatedAt = DateTime.Now;
 
-                        var updateVideoLikeRespose = await repository.UpdateAsync(videLike);
+                        var updateVideoLikeRespose = await repository.UpdateAsync(videoLike);
 
                         return updateVideoLikeRespose > 0 ? APIResponse<int>.SuccessResponse(updateVideoLikeRespose,"Video response updated"):
                             APIResponse<int>.ErrorResponse();

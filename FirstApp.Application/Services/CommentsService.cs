@@ -19,7 +19,8 @@ namespace FirstApp.Application.Services
         ICommentsRepository repository,
         IVideousRepository videousRepository,
         ICommentRepliesRepository commentRepliesRepository,
-        IContextService contextService
+        IContextService contextService,
+        ICommentAbuserepository commentAbuserepository
         )
         : ICommentsService
     {
@@ -30,6 +31,11 @@ namespace FirstApp.Application.Services
 
             if (userId == ObjectId.Empty)
                 return APIResponse<int>.ErrorResponse("Not authorized");
+
+            var isAbusiveComment = await commentAbuserepository.IsAbusiveComment(model.Title);
+
+            if (isAbusiveComment)
+                return APIResponse<int>.ErrorResponse("Your comment contains some abusive words");
 
             var videoExists = await videousRepository.ExistsAsync
                 (_ => _.Id == ObjectId.Parse(model.VideoId));

@@ -40,6 +40,7 @@ namespace FirstApp.Persistence
             services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
             services.AddScoped<INotificationsRepository, NotificationsRepository>();
             services.AddScoped<IWatchLaterRepository, WatchLaterRepository>();
+            services.AddScoped<ICommentAbuserepository, CommentAbuseRepository>();
 
             return services;
         }
