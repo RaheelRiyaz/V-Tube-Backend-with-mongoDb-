@@ -30,6 +30,7 @@ namespace FirstApp.Domain.Models
 
         [BsonRequired]
         public string Duration { get; set; } = null!;
+        public bool IsDeleted { get; set; } = false;
 
     }
 

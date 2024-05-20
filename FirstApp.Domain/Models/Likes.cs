@@ -14,6 +14,6 @@ namespace FirstApp.Domain.Models
         public ObjectId UserId { get; set; }
         public ObjectId? CommentId { get; set; }
         public bool IsLiked { get; set; }
-        public LikeType LikeType { get; set; }
+        public Enums.LikeType LikeType { get; set; }
     }
 }

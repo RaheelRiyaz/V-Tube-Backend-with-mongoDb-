@@ -79,6 +79,8 @@ namespace FirstApp.Persistence.Repository
             var pageSize = model.PageSize;
 
             // Match videos belonging to the specified channel
+            pipeline.Add(new BsonDocument("$match", new BsonDocument("IsDeleted", false)));
+
             if (model.ChannelId is not null)
                 pipeline.Add(new BsonDocument("$match", new BsonDocument("ChannelId", channelId)));
             else if (model.PlayListId is not null)

@@ -17,4 +17,11 @@ namespace FirstApp.Domain.Enums
         Comment = 1,
         Reply = 2,
     }
+
+    public enum ReportType : byte
+    {
+        Video = 1,
+        Comment = 2,
+        Reply = 3,
+    }
 }

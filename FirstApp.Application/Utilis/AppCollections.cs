@@ -24,6 +24,7 @@ namespace FirstApp.Application.Utilis
         { typeof(Subscriber), "Subscribers"},
         { typeof(Notification), "Notifications"},
         { typeof(WatchLater), "WatchLater"},
+        { typeof(Report), "Reports"},
     };
     }
 
