@@ -25,6 +25,8 @@ namespace FirstApp.Application
             services.AddScoped<ILikesService, LikesService>();
             services.AddScoped<INotificationsService, NotificationsService>();
             services.AddScoped<IWatchLaterService, WatchLaterService>();
+            services.AddScoped<IReportsService, ReportsService>();
+            services.AddScoped<IReportContentTypesService, ReportContentTypesService>();
             return services;
         }
     }

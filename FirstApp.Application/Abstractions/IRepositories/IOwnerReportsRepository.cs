@@ -1,5 +1,4 @@
-﻿
-using FirstApp.Domain.Models;
+﻿using FirstApp.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace FirstApp.Application.Abstractions.IRepositories
 {
-    public interface IReportsRepository : IBaseRepository<Report>
+    public interface IOwnerReportsRepository : IBaseRepository<OwnerReports>
     {
-        Task<int> CheckNoOfReportsForTheEntity(string entityId);
     }
 }

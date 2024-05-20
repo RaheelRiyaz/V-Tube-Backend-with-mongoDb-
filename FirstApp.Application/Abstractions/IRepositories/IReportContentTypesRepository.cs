@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 
 namespace FirstApp.Application.Abstractions.IRepositories
 {
-    public interface IReportsRepository : IBaseRepository<Report>
+    public interface IReportContentTypesRepository : IBaseRepository<ReportContentType>
     {
-        Task<int> CheckNoOfReportsForTheEntity(string entityId);
     }
 }

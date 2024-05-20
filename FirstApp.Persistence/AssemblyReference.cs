@@ -42,6 +42,8 @@ namespace FirstApp.Persistence
             services.AddScoped<IWatchLaterRepository, WatchLaterRepository>();
             services.AddScoped<ICommentAbuserepository, CommentAbuseRepository>();
             services.AddScoped<IReportsRepository, ReportsRepository>();
+            services.AddScoped<IOwnerReportsRepository, OwnerReportsRepository>();
+            services.AddScoped<IReportContentTypesRepository, ReportContentTypesRepository>();
 
             return services;
         }

@@ -24,4 +24,11 @@ namespace FirstApp.Domain.Enums
         Comment = 2,
         Reply = 3,
     }
+
+    public enum ReportResolution : byte
+    {
+        PermanentDelete = 1,
+        Recovered = 2,
+        Pending = 2,
+    }
 }

@@ -11,15 +11,12 @@ namespace FirstApp.Domain.Models
 {
     public class Report : BaseEntity
     {
-        [BsonId]
         public ObjectId ReportContentType { get; set; }
 
 
-        [BsonId]
         public ObjectId ReportedBy { get; set; }
 
 
-        [BsonId]
         public ObjectId EntityId { get; set; }
 
 

@@ -13,9 +13,14 @@ namespace FirstApp.Application.DTOS
     {
         public string ReportContentType { get; set; } = null!;
 
-        public string ReportedBy { get; set; } = null!;
         public string EntityId { get; set; } = null!;
 
         public ReportType ReportedOn { get; set; }
+    }
+
+    public class ReportContentTypeResponse
+    {
+        public string Id { get; set; } = null!;
+        public string Title { get; set; } = null!;
     }
 }

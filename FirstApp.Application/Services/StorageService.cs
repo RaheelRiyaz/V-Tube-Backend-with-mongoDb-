@@ -32,7 +32,7 @@ namespace FirstApp.Application.Services
 
         private string GetPhysicalPath()
         {
-            string path = webrootPath + "/Files";
+            string path = Path.Combine(webrootPath,"Files");
 
             if (!Path.Exists(path))
                 Directory.CreateDirectory(path);

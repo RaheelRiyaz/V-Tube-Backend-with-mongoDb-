@@ -12,5 +12,6 @@ namespace FirstApp.Domain.Models
         public ObjectId VideoId { get; set; }
         public ObjectId CommentedBy { get; set; }
         public string Title { get; set; } = null!;
+        public bool IsDeleted { get; set; }
     }
 }
