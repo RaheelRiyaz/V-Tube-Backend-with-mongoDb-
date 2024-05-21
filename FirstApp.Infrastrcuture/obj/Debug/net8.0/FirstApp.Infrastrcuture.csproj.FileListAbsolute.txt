@@ -33,3 +33,4 @@ D:\localRepository\V-Tube-Backend-with-mongoDb-\FirstApp.Infrastrcuture\obj\Debu
 D:\localRepository\V-Tube-Backend-with-mongoDb-\FirstApp.Infrastrcuture\obj\Debug\net8.0\refint\FirstApp.Infrastrcuture.dll
 D:\localRepository\V-Tube-Backend-with-mongoDb-\FirstApp.Infrastrcuture\obj\Debug\net8.0\FirstApp.Infrastrcuture.pdb
 D:\localRepository\V-Tube-Backend-with-mongoDb-\FirstApp.Infrastrcuture\obj\Debug\net8.0\ref\FirstApp.Infrastrcuture.dll
+D:\localRepository\V-Tube-Backend-with-mongoDb-\FirstApp.Infrastrcuture\bin\Debug\net8.0\Templates\Report.cshtml

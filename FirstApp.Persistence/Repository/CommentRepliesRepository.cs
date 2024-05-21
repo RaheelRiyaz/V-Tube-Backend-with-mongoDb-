@@ -21,8 +21,12 @@ namespace FirstApp.Persistence.Repository
         {
             var pipeline = new BsonDocument[]
             {
-        new BsonDocument("$match",
-            new BsonDocument("CommentId", new ObjectId(model.CommentId))),
+           new BsonDocument("$match",
+        new BsonDocument
+        {
+            { "IsDeleted", false },
+            { "CommentId", new ObjectId(model.CommentId) }
+        }),
         new BsonDocument("$lookup",
             new BsonDocument
             {

@@ -22,9 +22,13 @@ namespace FirstApp.Persistence.Repository
         public async Task<List<CommentDBResponse>> FetchCommentsByVideoIdAsync(CommentsFilter model, ObjectId userId)
         {
             var pipeline = new BsonDocument[]
- {  new BsonDocument("$match",
-    new BsonDocument("VideoId",
-    new ObjectId(model.VideoId))),
+ {
+     new BsonDocument("$match",
+        new BsonDocument
+        {
+            { "IsDeleted", false },
+            { "VideoId", new ObjectId(model.VideoId) }
+        }),
     new BsonDocument("$lookup",
     new BsonDocument
         {

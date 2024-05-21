@@ -3,6 +3,7 @@ using FirstApp.Application.Abstractions.IRepositories;
 using FirstApp.Application.Abstractions.IServices;
 using FirstApp.Application.APIResponse;
 using FirstApp.Application.DTOS;
+using FirstApp.Application.MailSettings;
 using FirstApp.Domain.Enums;
 using FirstApp.Domain.Models;
 using MongoDB.Bson;
@@ -24,6 +25,8 @@ namespace FirstApp.Application.Services
         IChannelsRepository _channelsRepository,
         ICommentRepliesRepository _commentRepliesRepository,
         IOwnerReportsRepository _ownerReportsRepository,
+        IMailJetService _mailJetService,
+        IEmailTemplateRendererAsyync _emailTemplateRendererAsyync,
         INotificationsRepository _notificationsRepository
         )
         : IReportsService
@@ -197,7 +200,7 @@ namespace FirstApp.Application.Services
                 (_ => _.EntityId == videoId && _.OwnerId == channel.Owner);
 
 
-            if (noOfReports >= 2)
+            if (noOfReports == 2)
             {
 
                 video.IsDeleted = true;
@@ -211,6 +214,22 @@ namespace FirstApp.Application.Services
                 };
 
                 await _notificationsRepository.InsertAsync(notification);
+
+                var model = new
+                {
+                    Email = "rahilriyaz27@gmail.com",
+                    Content = "Your video has been temporarily deleted beacuse it have been reported by many if u think it is unjustified you can counter report in settings > reporting > select a report then file a counter report!"
+                };
+
+                var settings = new MailSetting()
+                {
+                    Body = await _emailTemplateRendererAsyync.EmailTemplate("Report.cshtml", model),
+                    Subject = "Booking",
+                    To = new List<string>() { "rahilriyaz27@gmail.com" },
+                };
+
+
+                await _mailJetService.SendEmailAsync(settings);
 
                 report!.IsTemporarilyRemoved = true;
                 report.TemporarilyRemovedAt = DateTime.Now;
@@ -300,7 +319,66 @@ namespace FirstApp.Application.Services
 
         private async Task HandleReplyReport(ObjectId commentId, int noOfReports)
         {
+            var reply = await _commentRepliesRepository.FindOneAsync(commentId);
 
+            if (reply is null)
+                return;
+
+            var comment = await _commentsRepository.FindOneAsync(reply.CommentId);
+
+            if (comment is null)
+                return;
+
+            var video = await _videousRepository.FindOneAsync(comment.VideoId);
+
+            if (video is null)
+                return;
+
+            var channel = await _channelsRepository.FindOneAsync(video.ChannelId);
+
+            if (channel is null)
+                return;
+
+            var report = await _ownerReportsRepository.FirstOrDefaultAsync
+               (_ => _.EntityId == commentId && _.OwnerId == channel.Owner);
+
+
+            if (noOfReports == 2)
+            {
+                reply.IsDeleted = true;
+                await _commentRepliesRepository.UpdateAsync(reply);
+
+                var notification = new Notification
+                {
+                    Title = "A comment reply has been removed temporarily from your video because it has been reported. You can counter report for this.",
+                    UserId = channel.Owner,
+                    VideoId = video.Id,
+                    CommentId = commentId,
+                };
+
+                await _notificationsRepository.InsertAsync(notification);
+
+                report!.IsTemporarilyRemoved = true;
+                report.TemporarilyRemovedAt = DateTime.Now;
+            }
+
+            if (report is null)
+            {
+                var newReport = new OwnerReports
+                {
+                    OwnerId = channel.Owner,
+                    EntityId = commentId,
+                    ReportCount = 1,
+                    ReportType = ReportType.Reply,
+                };
+
+                await _ownerReportsRepository.InsertAsync(newReport);
+            }
+            else
+            {
+                report.ReportCount++;
+                await _ownerReportsRepository.UpdateAsync(report);
+            }
         }
 
     }

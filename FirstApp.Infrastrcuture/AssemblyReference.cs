@@ -1,4 +1,5 @@
 ﻿using FirstApp.Application.Abstractions.IServices;
+using FirstApp.Application.MailSettings;
 using FirstApp.Infrastrcuture.Models;
 using FirstApp.Infrastrcuture.Services;
 using Microsoft.Extensions.Configuration;
@@ -18,7 +19,10 @@ namespace FirstApp.Infrastrcuture
             services.AddSingleton<ITokenService>(new TokenService(configuration));
             services.AddScoped<IContextService, ContextService>();
             services.AddScoped<ICloudinaryService, CloudinaryService>();
+            services.AddScoped<IMailJetService, MailJetService>();
+            services.AddScoped<IEmailTemplateRendererAsyync, EmailTemplateRendererService>();
             services.Configure<CloudinaryInstance>(configuration.GetSection("Cloudinary"));
+            services.Configure<MailJet>(configuration.GetSection("MailJet"));
             return services;
         }
     }
