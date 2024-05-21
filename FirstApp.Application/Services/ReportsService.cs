@@ -197,7 +197,7 @@ namespace FirstApp.Application.Services
                 (_ => _.EntityId == videoId && _.OwnerId == channel.Owner);
 
 
-            if (noOfReports == 2)
+            if (noOfReports >= 2)
             {
 
                 video.IsDeleted = true;
