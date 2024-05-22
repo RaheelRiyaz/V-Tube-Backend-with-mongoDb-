@@ -44,21 +44,14 @@ namespace FirstApp.Controllers
 
 
         [HttpGet("download")]
-        public IActionResult Download(string fileName)
+        public async Task<FileContentResult> Download(string fileName)
         {
-            /*var path = "D:\\localRepository\\V-Tube-Backend-with-mongoDb-\\FirstApp\\wwwroot\\Files";
-
+            var path = "D:\\localRepository\\V-Tube-Backend-with-mongoDb-\\FirstApp\\wwwroot\\Files";
             var filePath = Path.Combine(path, "quranproject.png");
-            if (!System.IO.File.Exists(filePath))
-            {
-                return NotFound();
-            }
 
-            var stream = new FileStream(filePath, FileMode.Open);
-            return File(stream, "application/octet-stream", fileName);*/
+            var bytes = await System.IO.File.ReadAllBytesAsync(filePath);
 
-            return Redirect("http://res.cloudinary.com/dsk9es9jt/raw/upload/v1715316629/dq4o8nwajwbtomqihxcz.jpg");
-
+            return File(bytes, "image/jpeg", fileName);
         }
     }
 }
