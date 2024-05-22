@@ -34,10 +34,12 @@ namespace FirstApp.Application.Services
 
             var channel = await channelsRepository.FindOneAsync(video.ChannelId);
 
-            if (channel?.Owner != userId)
-                return APIResponse<int>.ErrorResponse("Only channel owner are permissible to delete a video");
+           /* if (channel?.Owner != userId)
+                return APIResponse<int>.ErrorResponse("Only channel owner are permissible to delete a video");*/
 
             var deletedResponse = await repository.DeleteAsync(video.Id);
+
+            await cloudinaryService.DeleteFileOnCloudinary(video.Url,video.Thumbnail);
 
             return deletedResponse > 0 ? APIResponse<int>.SuccessResponse(deletedResponse, "Video has been deleted successfully") :
                 APIResponse<int>.ErrorResponse();
@@ -76,8 +78,7 @@ namespace FirstApp.Application.Services
                 TotalDislikes = _.TotalDislikes,
                 HasUserLiked = _.HasUserLiked
             }).
-            OrderByDescending(_=>_.CreatedAt)
-            .ToList();
+            ToList();
 
             return APIResponse<List<VideoViewModel>>.SuccessResponse(result);
         }

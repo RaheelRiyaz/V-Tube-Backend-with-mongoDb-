@@ -43,7 +43,7 @@ namespace FirstApp.Persistence.Repository
             return result;
         }
 
-      
+
 
         public async Task<List<string>> GetVideoSearchSuggestions(string searchTerm)
         {
@@ -72,40 +72,97 @@ namespace FirstApp.Persistence.Repository
             var isChannelIdValid = ObjectId.TryParse(model.ChannelId, out channelId);
             var isPlayListIdValid = ObjectId.TryParse(model.PlayListId, out playListId);
 
-            if ((!isPlayListIdValid && !isChannelIdValid && string.IsNullOrEmpty(searchTerm)))
+            if ((!isPlayListIdValid && !isChannelIdValid && string.IsNullOrWhiteSpace(searchTerm)))
                 return new List<DBVideoModel>();
 
             var pageNumber = model.PageNumber;
             var pageSize = model.PageSize;
 
-            // Match videos belonging to the specified channel
-            pipeline.Add(new BsonDocument("$match", new BsonDocument("IsDeleted", false)));
-
-            if (model.ChannelId is not null)
-                pipeline.Add(new BsonDocument("$match", new BsonDocument("ChannelId", channelId)));
-            else if (model.PlayListId is not null)
-                pipeline.Add(new BsonDocument("$match", new BsonDocument("PlayListId", playListId)));
-            else
+            if(playListId == ObjectId.Empty && channelId == ObjectId.Empty && !string.IsNullOrWhiteSpace(searchTerm))
             {
-                pipeline.Add(
-                        new BsonDocument("$match",
-             new BsonDocument("$or",
-            new BsonArray
-                    {
-                        new BsonDocument("Title",
-                        new BsonDocument
-                            {
-                                { "$regex", searchTerm },
-                                { "$options", "i" }
-                            }),
-                        new BsonDocument("Description",
-                        new BsonDocument
-                            {
-                                { "$regex", searchTerm },
-                                { "$options", "i" }
-                            })
-                    })));
-            };
+                var textSearchStage = new BsonDocument("$match", new BsonDocument
+                   {
+                    { "$text", new BsonDocument { { "$search", searchTerm } } },
+                    { "IsDeleted", false }
+                   });
+
+                pipeline.Add(textSearchStage);
+            }
+
+            else if(playListId == ObjectId.Empty && channelId != ObjectId.Empty && string.IsNullOrWhiteSpace(searchTerm))
+            {
+                var channelMatchStage = new BsonDocument("$match", new BsonDocument
+                   {
+                    { "ChannelId", channelId },
+                    { "IsDeleted", false }
+                   });
+
+                pipeline.Add(channelMatchStage);
+            }
+
+            else if(playListId != ObjectId.Empty && channelId == ObjectId.Empty && string.IsNullOrWhiteSpace(searchTerm))
+            {
+                var playListMatchStage = new BsonDocument("$match", new BsonDocument
+                   {
+                    { "PlayListId", playListId },
+                    { "IsDeleted", false }
+                   });
+
+                pipeline.Add(playListMatchStage);
+            }
+
+            else if (playListId != ObjectId.Empty && channelId != ObjectId.Empty && string.IsNullOrWhiteSpace(searchTerm))
+            {
+                var playListMatchStage = new BsonDocument("$match", new BsonDocument
+                   {
+                    { "ChannelId", channelId },
+                    { "PlayListId", playListId },
+                    { "IsDeleted", false }
+                   });
+
+                pipeline.Add(playListMatchStage);
+            }
+
+            else if (playListId != ObjectId.Empty && channelId != ObjectId.Empty && !string.IsNullOrWhiteSpace(searchTerm))
+            {
+                var playListMatchStage = new BsonDocument("$match", new BsonDocument
+                   {
+                    { "ChannelId", channelId },
+                    { "PlayListId", playListId },
+                    { "IsDeleted", false },
+                    { "$text", new BsonDocument { { "$search", searchTerm } } }
+                   });
+
+                pipeline.Add(playListMatchStage);
+            }
+
+            else if (playListId != ObjectId.Empty && channelId == ObjectId.Empty && !string.IsNullOrWhiteSpace(searchTerm))
+            {
+                var playListMatchStage = new BsonDocument("$match", new BsonDocument
+                   {
+                    { "PlayListId", playListId },
+                    { "IsDeleted", false },
+                    { "$text", new BsonDocument { { "$search", searchTerm } } }
+                   });
+
+                pipeline.Add(playListMatchStage);
+            }
+
+            else if (playListId == ObjectId.Empty && channelId != ObjectId.Empty && !string.IsNullOrWhiteSpace(searchTerm))
+            {
+                var playListMatchStage = new BsonDocument("$match", new BsonDocument
+                   {
+                    { "ChannelId", channelId },
+                    { "IsDeleted", false },
+                    { "$text", new BsonDocument { { "$search", searchTerm } } }
+                   });
+
+                pipeline.Add(playListMatchStage);
+            }
+
+
+
+
 
             pipeline.Add(new BsonDocument("$lookup", new BsonDocument
     {
@@ -235,6 +292,7 @@ namespace FirstApp.Persistence.Repository
             // Pagination: Skip records and limit to the page size
             pipeline.Add(new BsonDocument("$skip", (pageNumber - 1) * pageSize));
             pipeline.Add(new BsonDocument("$limit", pageSize));
+            pipeline.Add(new BsonDocument("$sort", new BsonDocument("CreatedAt",model.SortOrder ?? 1)));
 
             var aggregateOptions = new AggregateOptions { AllowDiskUse = true };
 

@@ -95,6 +95,7 @@ namespace FirstApp.Application.DTOS
         string? Term, 
         string? PlayListId, 
         int PageNumber,
-        int PageSize
+        int PageSize,
+        int? SortOrder
         );
 }

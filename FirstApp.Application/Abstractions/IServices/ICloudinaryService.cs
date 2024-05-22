@@ -11,6 +11,7 @@ namespace FirstApp.Application.Abstractions.IServices
     public interface ICloudinaryService
     {
         Task<RawUploadResult?> UploadFileOnCloudinary(IFormFile file);
+        Task<int> DeleteFileOnCloudinary(params string [] urls);
         Task<(RawUploadResult?, string?)> UploadVideoFileOnCloudinary(IFormFile file);
         Task<List<RawUploadResult>> UploadFilesOnCloudinary(IFormFileCollection files);
     }

@@ -1,8 +1,8 @@
 {
   "Files": [
     {
-      "Id": "D:\\DotnetwithMongoDB\\FirstApp\\FirstApp\\wwwroot\\Files\\video (1080p).mp4",
-      "PackagePath": "staticwebassets\\Files\\video (1080p).mp4"
+      "Id": "D:\\localRepository\\V-Tube-Backend-with-mongoDb-\\FirstApp\\wwwroot\\Files\\quranproject.png",
+      "PackagePath": "staticwebassets\\Files\\quranproject.png"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.FirstApp.Microsoft.AspNetCore.StaticWebAssets.props",

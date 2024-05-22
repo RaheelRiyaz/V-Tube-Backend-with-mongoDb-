@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "djoUHRoc7EScPX2IjCMM82SZaqTIjv14zdwv8579UIE=",
+  "Hash": "UVznTipmSNrrwpMsw+Ch2Q06n+U7TfplNN8gb8449z8=",
   "Source": "FirstApp",
   "BasePath": "_content/FirstApp",
   "Mode": "Default",
@@ -15,5 +15,25 @@
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [
+    {
+      "Identity": "D:\\localRepository\\V-Tube-Backend-with-mongoDb-\\FirstApp\\wwwroot\\Files\\quranproject.png",
+      "SourceId": "FirstApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\localRepository\\V-Tube-Backend-with-mongoDb-\\FirstApp\\wwwroot\\",
+      "BasePath": "_content/FirstApp",
+      "RelativePath": "Files/quranproject.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Files\\quranproject.png"
+    }
+  ]
 }

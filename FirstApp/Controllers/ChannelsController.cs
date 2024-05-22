@@ -40,5 +40,25 @@ namespace FirstApp.Controllers
         [HttpPost("subscribed-channels")]
         public async Task<APIResponse<List<UserSubscribedViewResponse>>> ViewUserSubscribedChannels(FilterModel model) =>
             await service.ViewUserSubscribedChannels(model);
+
+
+
+        [HttpGet("download")]
+        public IActionResult Download(string fileName)
+        {
+            /*var path = "D:\\localRepository\\V-Tube-Backend-with-mongoDb-\\FirstApp\\wwwroot\\Files";
+
+            var filePath = Path.Combine(path, "quranproject.png");
+            if (!System.IO.File.Exists(filePath))
+            {
+                return NotFound();
+            }
+
+            var stream = new FileStream(filePath, FileMode.Open);
+            return File(stream, "application/octet-stream", fileName);*/
+
+            return Redirect("http://res.cloudinary.com/dsk9es9jt/raw/upload/v1715316629/dq4o8nwajwbtomqihxcz.jpg");
+
+        }
     }
 }

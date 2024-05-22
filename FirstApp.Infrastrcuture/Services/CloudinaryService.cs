@@ -37,6 +37,22 @@ namespace FirstApp.Infrastrcuture.Services
             _cloudinary = new Cloudinary(account);
             this.storageService = storageService;
         }
+
+        public async Task<int> DeleteFileOnCloudinary(params string[] urls)
+        {
+            List<string> public_ids = new List<string>();
+
+            foreach (var url in urls)
+            {
+                var publicId = GetPublicIdFromUrl(url);
+                public_ids.Add(publicId);
+            }
+
+            var result = await _cloudinary.DeleteResourcesAsync(public_ids.ToArray());
+
+            return result.DeletedCounts.Count;
+        }
+
         public async Task<RawUploadResult?> UploadFileOnCloudinary(IFormFile file)
         {
             try
@@ -111,5 +127,19 @@ namespace FirstApp.Infrastrcuture.Services
             }
         }
 
+        private string GetPublicIdFromUrl(string url)
+        {
+            try
+            {
+                var parts = url.Split('/');
+                var publicIdWithExtension = parts.Last().Split('.').FirstOrDefault();
+                var publicId = publicIdWithExtension?.Split('_').FirstOrDefault(); // Handle case where public ID contains underscores
+                return publicId ?? string.Empty;
+            }
+            catch
+            {
+                return string.Empty;
+            }
+        }
     }
 }
