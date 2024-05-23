@@ -411,6 +411,39 @@ namespace FirstApp.Application.Services
                 "You have successfully countered against this report.Our team will look upon this if they find this unjustified your content will be recovered and you will be notified.Thank you!"):
                 APIResponse<int>.ErrorResponse();
         }
+
+        public async Task<APIResponse<List<OwnerReportResponse>>> GetOwnerReportsAsync()
+        {
+            //var userId = _contextService.GetUserId();
+            var userId = ObjectId.Parse("6639a524cb32b4eca722a251");
+
+            if (userId == ObjectId.Empty)
+                return APIResponse<List<OwnerReportResponse>>.ErrorResponse("Unauthorized");
+
+            var reports = await _ownerReportsRepository.GetOwnerReportsAsync(userId);
+
+            var response = reports.Select(_ => new OwnerReportResponse
+            {
+                CommentTitle = _.CommentTitle,
+                CreatedAt = _.CreatedAt,
+                EntityId = _.EntityId.ToString(),
+                Id = _.Id.ToString(),
+                IsPermanentlyRemoved = _.IsPermanentlyRemoved,
+                IsRestored = _.IsRestored,
+                IsTemporarilyRemoved = _.IsTemporarilyRemoved,
+                OwnerId = _.OwnerId.ToString(),
+                PermanentlyRemovedAt = _.PermanentlyRemovedAt,
+                ReplyTitle = _.ReplyTitle,
+                ReportCount = _.ReportCount,
+                ReportType = _.ReportType,
+                RestoredAt = _.RestoredAt,
+                TemporarilyRemovedAt = _.TemporarilyRemovedAt,
+                UpdatedAt = _.UpdatedAt,
+                VideoTitle = _.VideoTitle
+            }).ToList();
+
+            return APIResponse<List<OwnerReportResponse>>.SuccessResponse(response, "Owner reports fetched");
+        }
     }
 }
 

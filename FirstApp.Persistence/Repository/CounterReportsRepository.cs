@@ -1,6 +1,8 @@
 ﻿
 using FirstApp.Application.Abstractions.IRepositories;
+using FirstApp.Application.DTOS;
 using FirstApp.Domain.Models;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -15,5 +17,7 @@ namespace FirstApp.Persistence.Repository
         public CounterReportsRepository(IMongoDatabase database) : base(database)
         {
         }
+
+       
     }
 }

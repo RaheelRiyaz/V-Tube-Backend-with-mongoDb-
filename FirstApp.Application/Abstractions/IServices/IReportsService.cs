@@ -1,5 +1,6 @@
 ﻿using FirstApp.Application.APIResponse;
 using FirstApp.Application.DTOS;
+using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,6 @@ namespace FirstApp.Application.Abstractions.IServices
     {
         Task<APIResponse<int>> AddReport(ReportRequest model);
         Task<APIResponse<int>> CounterReport(CounterReportRequest model);
+        Task<APIResponse<List<OwnerReportResponse>>> GetOwnerReportsAsync();
     }
 }
