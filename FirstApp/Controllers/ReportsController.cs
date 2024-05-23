@@ -23,5 +23,10 @@ namespace FirstApp.Controllers
         [HttpGet("report-type-contents")]
         public async Task<APIResponse<List<ReportContentTypeResponse>>> GetReportContentTypesAsync() =>
             await reportContentTypesService.GetReportContentTypesAsync();
+
+
+        [HttpPost("counter-report")]
+        public async Task<APIResponse<int>> CounterReport(CounterReportRequest model) =>
+            await reportsService.CounterReport(model);
     }
 }

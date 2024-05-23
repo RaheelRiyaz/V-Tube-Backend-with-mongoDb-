@@ -23,4 +23,11 @@ namespace FirstApp.Application.DTOS
         public string Id { get; set; } = null!;
         public string Title { get; set; } = null!;
     }
+
+    public class CounterReportRequest
+    {
+        public string EntityId { get; set; } = null!;
+        public string Justification { get; set; } = null!;
+        public ReportType ReportType { get; set; }
+    }
 }

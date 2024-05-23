@@ -27,7 +27,8 @@ namespace FirstApp.Application.Services
         IOwnerReportsRepository _ownerReportsRepository,
         IMailJetService _mailJetService,
         IEmailTemplateRendererAsyync _emailTemplateRendererAsyync,
-        INotificationsRepository _notificationsRepository
+        INotificationsRepository _notificationsRepository,
+        ICounterReportsRepository counterReportsRepository
         )
         : IReportsService
     {
@@ -225,7 +226,7 @@ namespace FirstApp.Application.Services
                 {
                     Body = await _emailTemplateRendererAsyync.EmailTemplate("Report.cshtml", model),
                     Subject = "Booking",
-                    To = new List<string>() { "rahilriyaz27@gmail.com" },
+                    To = new List<string>() { "rahiltechnochords@gmail.com" },
                 };
 
 
@@ -381,6 +382,35 @@ namespace FirstApp.Application.Services
             }
         }
 
+        public async Task<APIResponse<int>> CounterReport(CounterReportRequest model)
+        {
+            //var userId = _contextService.GetUserId();
+            var userId = ObjectId.Parse("6639bb42c92b6748cb77c6fa");
+
+            if (userId == ObjectId.Empty)
+                return APIResponse<int>.ErrorResponse("Unauthorized");
+
+            var hasAlreadyCountered = await counterReportsRepository.ExistsAsync
+                (_ => _.EntityId == new ObjectId(model.EntityId) && _.CounteredBy == userId);
+
+            if (hasAlreadyCountered)
+                return APIResponse<int>.ErrorResponse("You have already countered this report wait for the response.Thank you");
+
+            var counterReport = new CounterReport
+            {
+                CounteredBy = userId,
+                EntityId = new ObjectId(model.EntityId),
+                ReportType = model.ReportType,
+                Justification = model.Justification,
+            };
+
+            var addedCounteredReportResponse = await counterReportsRepository.InsertAsync(counterReport);
+
+            return addedCounteredReportResponse > 0 ? APIResponse<int>.
+                SuccessResponse(addedCounteredReportResponse,
+                "You have successfully countered against this report.Our team will look upon this if they find this unjustified your content will be recovered and you will be notified.Thank you!"):
+                APIResponse<int>.ErrorResponse();
+        }
     }
 }
 

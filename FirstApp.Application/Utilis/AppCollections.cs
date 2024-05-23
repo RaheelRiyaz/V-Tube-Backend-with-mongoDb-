@@ -27,6 +27,7 @@ namespace FirstApp.Application.Utilis
         { typeof(Report), "Reports"},
         { typeof(ReportContentType), "ReportContentTypes"},
         { typeof(OwnerReports), "OwnerReports"},
+        { typeof(CounterReport), "CounterReports"},
     };
     }
 

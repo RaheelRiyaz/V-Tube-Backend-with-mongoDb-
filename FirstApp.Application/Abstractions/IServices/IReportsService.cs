@@ -11,5 +11,6 @@ namespace FirstApp.Application.Abstractions.IServices
     public interface IReportsService
     {
         Task<APIResponse<int>> AddReport(ReportRequest model);
+        Task<APIResponse<int>> CounterReport(CounterReportRequest model);
     }
 }

@@ -44,6 +44,7 @@ namespace FirstApp.Persistence
             services.AddScoped<IReportsRepository, ReportsRepository>();
             services.AddScoped<IOwnerReportsRepository, OwnerReportsRepository>();
             services.AddScoped<IReportContentTypesRepository, ReportContentTypesRepository>();
+            services.AddScoped<ICounterReportsRepository, CounterReportsRepository>();
 
             return services;
         }

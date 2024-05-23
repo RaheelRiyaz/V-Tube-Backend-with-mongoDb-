@@ -16,9 +16,9 @@ namespace FirstApp.Domain.Models
         public bool HasJustified { get; set; }
         public bool Inspected { get; set; }
         public string Justification { get; set; } = null!;
-        public ObjectId InspectedBy { get; set; } 
-        public DateTime InspectedAt { get; set; } 
-        public DateTime ResolvedAt { get; set; }
+        public ObjectId? InspectedBy { get; set; } 
+        public DateTime? InspectedAt { get; set; } 
+        public DateTime? ResolvedAt { get; set; }
         public ReportResolution Resolution { get; set; } = ReportResolution.Pending;
     }
 

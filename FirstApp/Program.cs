@@ -2,6 +2,7 @@ using FirstApp;
 using FirstApp.Application;
 using FirstApp.Infrastrcuture;
 using FirstApp.Persistence;
+using Microsoft.Extensions.Azure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,11 @@ builder.Services.AddApplicationServices(builder.Environment.WebRootPath).
     AddApiServices(builder.Configuration).
     AddPersistenceServices(builder.Configuration).
     AddInfrastrcutureServices(builder.Configuration);
+builder.Services.AddAzureClients(clientBuilder =>
+{
+    clientBuilder.AddBlobServiceClient(builder.Configuration["localstorage:blob"], preferMsi: true);
+    clientBuilder.AddQueueServiceClient(builder.Configuration["localstorage:queue"], preferMsi: true);
+});
 var app = builder.Build();
 
 app.UseExceptionHandler(_ => { });
