@@ -73,6 +73,7 @@ namespace FirstApp.Application.DTOS
         public string Thumbnail { get; set; } = null!;
         public bool? HasUserLiked { get; set; }
         public bool IsOwner { get; set; }
+        public bool CommentsTurnedOff { get; set; }
         public string Url { get; set; } = null!;
         public DateTime CreatedAt { get; set; }
         public string ChannelName { get; set; } = null!;

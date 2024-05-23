@@ -583,6 +583,7 @@ namespace FirstApp.Persistence.Repository
                     { "else", false }
                 }) },
             { "Title", 1 },
+            { "CommentsTurnedOff", 1 },
             { "TotalViews",
     new BsonDocument("$size", "$Views") },
             { "Thumbnail", 1 },

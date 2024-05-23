@@ -34,8 +34,8 @@ namespace FirstApp.Application.Services
 
             var channel = await channelsRepository.FindOneAsync(video.ChannelId);
 
-           /* if (channel?.Owner != userId)
-                return APIResponse<int>.ErrorResponse("Only channel owner are permissible to delete a video");*/
+            if (channel?.Owner != userId)
+                return APIResponse<int>.ErrorResponse("Only channel owner are permissible to delete a video");
 
             var deletedResponse = await repository.DeleteAsync(video.Id);
 
@@ -59,6 +59,7 @@ namespace FirstApp.Application.Services
             var result = videos.Select(_ => new VideoViewModel
             {
                 ChannelId = _.ChannelId.ToString(),
+                CommentsTurnedOff = _.CommentsTurnedOff,
                 ChannelName = _.ChannelName,
                 Description = _.Description,
                 Duration = _.Duration,
@@ -89,6 +90,29 @@ namespace FirstApp.Application.Services
             var suggestions = await repository.GetVideoSearchSuggestions(searchTerm);
 
             return APIResponse<List<string>>.SuccessResponse(suggestions);
+        }
+
+        public async Task<APIResponse<int>> TurnCommentsOff(string id)
+        {
+            var video = await repository.FindOneAsync(new ObjectId(id));
+
+            if (video is null)
+                return APIResponse<int>.ErrorResponse("Invalid video");
+
+            var userId = ObjectId.Parse("6639a524cb32b4eca722a251");
+            //var userId = contextService.GetUserId();
+
+            var channel = await channelsRepository.FindOneAsync(video.ChannelId);
+
+            if (channel?.Owner != userId)
+                return APIResponse<int>.ErrorResponse("Only channel owner are permissible to change settings of a video");
+
+            video.CommentsTurnedOff = !video.CommentsTurnedOff;
+
+            var updatedVideoResponse = await repository.UpdateAsync(video);
+
+            return updatedVideoResponse > 0 ? APIResponse<int>.SuccessResponse(updatedVideoResponse, "Video settings has been updated successfully") :
+                APIResponse<int>.ErrorResponse();
         }
 
         public async Task<APIResponse<int>> UpdateVideo(UpdateVideoRequest model)

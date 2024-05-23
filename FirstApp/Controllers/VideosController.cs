@@ -33,5 +33,11 @@ namespace FirstApp.Controllers
         [HttpDelete("{id}")]
         public async Task<APIResponse<int>> DeleteVideo(string id) =>
             await service.DeleteVideo(id);
+
+
+
+        [HttpGet("toggle-commentsvisibilty/{videoId}")]
+        public async Task<APIResponse<int>> TurnCommentsOff(string videoId) =>
+            await service.TurnCommentsOff(videoId);
     }
 }

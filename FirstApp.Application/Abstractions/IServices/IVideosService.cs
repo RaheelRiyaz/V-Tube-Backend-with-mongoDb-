@@ -14,6 +14,7 @@ namespace FirstApp.Application.Abstractions.IServices
         Task<APIResponse<int>> UploadVideo(VideoRequest model);
         Task<APIResponse<int>> UpdateVideo(UpdateVideoRequest model);
         Task<APIResponse<int>> DeleteVideo(string id);
+        Task<APIResponse<int>> TurnCommentsOff(string id);
         Task<APIResponse<List<string>>> GetVideoSearchSuggestions(string searchTerm);
         Task<APIResponse<List<VideoViewModel>>> FetchVideosByChannel(VideoFilter model);
     }
