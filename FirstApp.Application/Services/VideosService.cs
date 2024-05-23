@@ -29,7 +29,7 @@ namespace FirstApp.Application.Services
             if (video is null)
                 return APIResponse<int>.ErrorResponse("Invalid video");
 
-            var userId = ObjectId.Parse("6639bb42c92b6748cb77c6fa");
+            var userId = ObjectId.Parse("6639a524cb32b4eca722a251");
             //var userId = contextService.GetUserId();
 
             var channel = await channelsRepository.FindOneAsync(video.ChannelId);
@@ -67,6 +67,7 @@ namespace FirstApp.Application.Services
                 Id = _.Id.ToString(),
                 Title = _.Title,
                 TotalComments = _.TotalComments,
+                IsOwner = _.IsOwner,
                 DurationInHistory = _.DurationInHistory,
                 TotalCommentsAndReplies = _.TotalCommentsAndReplies,
                 TotalLikes = _.TotalLikes,
