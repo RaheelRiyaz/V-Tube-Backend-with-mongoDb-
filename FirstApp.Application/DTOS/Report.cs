@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FirstApp.Domain.Models;
 
 namespace FirstApp.Application.DTOS
 {
@@ -61,5 +62,27 @@ namespace FirstApp.Application.DTOS
         public string Id { get; set; } = null!;
         public string EntityId { get; set; } = null!;
         public string OwnerId { get; set; } = null!;
+    }
+
+    public class CounterReportBaseResponse
+    {
+        public ReportType ReportType { get; set; }
+        public bool HasJustified { get; set; }
+        public bool Inspected { get; set; }
+        public string Justification { get; set; } = null!;
+        public DateTime? InspectedAt { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
+        public DateTime? ResolvedAt { get; set; }
+        public ReportResolution Resolution { get; set; }
+    }
+
+
+    public class CounterReportResponse : CounterReportBaseResponse
+    {
+        public string CounteredBy { get; set; } = null!;
+        public string EntityId { get; set; } = null!;
+        public string? InspectedBy { get; set; } = null!;
+        public string Id { get; set; } = null!;
     }
 }

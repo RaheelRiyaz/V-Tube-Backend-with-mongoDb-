@@ -18,6 +18,21 @@ namespace FirstApp.Persistence.Repository
         {
         }
 
-       
+        public async Task<List<CounterReport>> FetchCounterReports(FilterModel model)
+        {
+            var filter = Builders<CounterReport>.Filter.Empty; 
+
+            var sort = model.SortOrder == 1 ? Builders<CounterReport>.Sort.Ascending("CreatedAt"):
+                Builders<CounterReport>.Sort.Ascending("CreatedAt"); 
+
+            var result = await _collection
+                .Find(filter)  
+                .Sort(sort)  
+                .Skip((model.PageNo - 1) * model.PageSize)  
+                .Limit(model.PageSize)
+                .ToListAsync();
+
+            return result;
+        }
     }
 }

@@ -53,6 +53,7 @@ namespace FirstApp.Application.DTOS
     {
         public int PageNo { get; set; }
         public int PageSize { get; set; }
+
         [AllowedValues(1, -1, ErrorMessage = "only 1 and -1 are allowed")]
         public int? SortOrder { get; set; } = -1;
     }

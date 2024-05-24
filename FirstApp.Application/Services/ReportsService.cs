@@ -444,6 +444,31 @@ namespace FirstApp.Application.Services
 
             return APIResponse<List<OwnerReportResponse>>.SuccessResponse(response, "Owner reports fetched");
         }
+
+        public async Task<APIResponse<List<CounterReportResponse>>> FetchCounterReports(FilterModel model)
+        {
+            var counterReports = await counterReportsRepository.FetchCounterReports(model);
+
+            var resposne = counterReports.Select(_ => new CounterReportResponse
+            {
+                CounteredBy = _.CounteredBy.ToString(),
+                EntityId = _.EntityId.ToString(),
+                InspectedBy = _.InspectedBy.ToString() ,
+                InspectedAt = _.InspectedAt,
+                HasJustified = _.HasJustified,
+                CreatedAt = _.CreatedAt,
+                Id =_.Id.ToString(),
+                Inspected = _.Inspected,
+                Justification = _.Justification,
+                ReportType = _.ReportType,
+                Resolution = _.Resolution,
+                ResolvedAt = _.ResolvedAt,
+                UpdatedAt = _.UpdatedAt
+            }).
+            ToList();
+
+            return APIResponse<List<CounterReportResponse>>.SuccessResponse(resposne, "Counter reports fetched");
+        }
     }
 }
 

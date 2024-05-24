@@ -12,5 +12,6 @@ namespace FirstApp.Application.Abstractions.IRepositories
 {
     public interface ICounterReportsRepository : IBaseRepository<CounterReport>
     {
+        Task<List<CounterReport>> FetchCounterReports(FilterModel model);
     }
 }

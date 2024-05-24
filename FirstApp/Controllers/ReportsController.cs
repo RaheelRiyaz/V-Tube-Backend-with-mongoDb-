@@ -33,5 +33,10 @@ namespace FirstApp.Controllers
         [HttpGet("owner-reports")]
         public async Task<APIResponse<List<OwnerReportResponse>>> GetOwnerReportsAsync() =>
             await reportsService.GetOwnerReportsAsync();
+
+
+        [HttpPost("fetch-counter-reports")]
+        public async Task<APIResponse<List<CounterReportResponse>>> FetchCounterReports(FilterModel model) =>
+            await reportsService.FetchCounterReports(model);
     }
 }

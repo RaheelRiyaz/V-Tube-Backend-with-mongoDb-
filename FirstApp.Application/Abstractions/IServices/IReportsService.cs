@@ -14,5 +14,6 @@ namespace FirstApp.Application.Abstractions.IServices
         Task<APIResponse<int>> AddReport(ReportRequest model);
         Task<APIResponse<int>> CounterReport(CounterReportRequest model);
         Task<APIResponse<List<OwnerReportResponse>>> GetOwnerReportsAsync();
+        Task<APIResponse<List<CounterReportResponse>>> FetchCounterReports(FilterModel model);
     }
 }
