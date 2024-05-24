@@ -61,249 +61,249 @@ namespace FirstApp.Persistence.Repository
 
 
 
-       /* public async Task<List<DBVideoModel>> FetchVideosByChannel(VideoFilter model, ObjectId userId)
-        {
-            var pipeline = new List<BsonDocument>();
-            var channelId = ObjectId.Empty;
-            var playListId = ObjectId.Empty;
+        /* public async Task<List<DBVideoModel>> FetchVideosByChannel(VideoFilter model, ObjectId userId)
+         {
+             var pipeline = new List<BsonDocument>();
+             var channelId = ObjectId.Empty;
+             var playListId = ObjectId.Empty;
 
-            string searchTerm = model.Term ?? "";
+             string searchTerm = model.Term ?? "";
 
-            var isChannelIdValid = ObjectId.TryParse(model.ChannelId, out channelId);
-            var isPlayListIdValid = ObjectId.TryParse(model.PlayListId, out playListId);
+             var isChannelIdValid = ObjectId.TryParse(model.ChannelId, out channelId);
+             var isPlayListIdValid = ObjectId.TryParse(model.PlayListId, out playListId);
 
-            if ((!isPlayListIdValid && !isChannelIdValid && string.IsNullOrWhiteSpace(searchTerm)))
-                return new List<DBVideoModel>();
+             if ((!isPlayListIdValid && !isChannelIdValid && string.IsNullOrWhiteSpace(searchTerm)))
+                 return new List<DBVideoModel>();
 
-            var pageNumber = model.PageNumber;
-            var pageSize = model.PageSize;
+             var pageNumber = model.PageNumber;
+             var pageSize = model.PageSize;
 
-            if(playListId == ObjectId.Empty && channelId == ObjectId.Empty && !string.IsNullOrWhiteSpace(searchTerm))
-            {
-                var textSearchStage = new BsonDocument("$match", new BsonDocument
-                   {
-                    { "$text", new BsonDocument { { "$search", searchTerm } } },
-                    { "IsDeleted", false }
-                   });
+             if(playListId == ObjectId.Empty && channelId == ObjectId.Empty && !string.IsNullOrWhiteSpace(searchTerm))
+             {
+                 var textSearchStage = new BsonDocument("$match", new BsonDocument
+                    {
+                     { "$text", new BsonDocument { { "$search", searchTerm } } },
+                     { "IsDeleted", false }
+                    });
 
-                pipeline.Add(textSearchStage);
-            }
+                 pipeline.Add(textSearchStage);
+             }
 
-            else if(playListId == ObjectId.Empty && channelId != ObjectId.Empty && string.IsNullOrWhiteSpace(searchTerm))
-            {
-                var channelMatchStage = new BsonDocument("$match", new BsonDocument
-                   {
-                    { "ChannelId", channelId },
-                    { "IsDeleted", false }
-                   });
+             else if(playListId == ObjectId.Empty && channelId != ObjectId.Empty && string.IsNullOrWhiteSpace(searchTerm))
+             {
+                 var channelMatchStage = new BsonDocument("$match", new BsonDocument
+                    {
+                     { "ChannelId", channelId },
+                     { "IsDeleted", false }
+                    });
 
-                pipeline.Add(channelMatchStage);
-            }
+                 pipeline.Add(channelMatchStage);
+             }
 
-            else if(playListId != ObjectId.Empty && channelId == ObjectId.Empty && string.IsNullOrWhiteSpace(searchTerm))
-            {
-                var playListMatchStage = new BsonDocument("$match", new BsonDocument
-                   {
-                    { "PlayListId", playListId },
-                    { "IsDeleted", false }
-                   });
+             else if(playListId != ObjectId.Empty && channelId == ObjectId.Empty && string.IsNullOrWhiteSpace(searchTerm))
+             {
+                 var playListMatchStage = new BsonDocument("$match", new BsonDocument
+                    {
+                     { "PlayListId", playListId },
+                     { "IsDeleted", false }
+                    });
 
-                pipeline.Add(playListMatchStage);
-            }
+                 pipeline.Add(playListMatchStage);
+             }
 
-            else if (playListId != ObjectId.Empty && channelId != ObjectId.Empty && string.IsNullOrWhiteSpace(searchTerm))
-            {
-                var playListMatchStage = new BsonDocument("$match", new BsonDocument
-                   {
-                    { "ChannelId", channelId },
-                    { "PlayListId", playListId },
-                    { "IsDeleted", false }
-                   });
+             else if (playListId != ObjectId.Empty && channelId != ObjectId.Empty && string.IsNullOrWhiteSpace(searchTerm))
+             {
+                 var playListMatchStage = new BsonDocument("$match", new BsonDocument
+                    {
+                     { "ChannelId", channelId },
+                     { "PlayListId", playListId },
+                     { "IsDeleted", false }
+                    });
 
-                pipeline.Add(playListMatchStage);
-            }
+                 pipeline.Add(playListMatchStage);
+             }
 
-            else if (playListId != ObjectId.Empty && channelId != ObjectId.Empty && !string.IsNullOrWhiteSpace(searchTerm))
-            {
-                var playListMatchStage = new BsonDocument("$match", new BsonDocument
-                   {
-                    { "ChannelId", channelId },
-                    { "PlayListId", playListId },
-                    { "IsDeleted", false },
-                    { "$text", new BsonDocument { { "$search", searchTerm } } }
-                   });
+             else if (playListId != ObjectId.Empty && channelId != ObjectId.Empty && !string.IsNullOrWhiteSpace(searchTerm))
+             {
+                 var playListMatchStage = new BsonDocument("$match", new BsonDocument
+                    {
+                     { "ChannelId", channelId },
+                     { "PlayListId", playListId },
+                     { "IsDeleted", false },
+                     { "$text", new BsonDocument { { "$search", searchTerm } } }
+                    });
 
-                pipeline.Add(playListMatchStage);
-            }
+                 pipeline.Add(playListMatchStage);
+             }
 
-            else if (playListId != ObjectId.Empty && channelId == ObjectId.Empty && !string.IsNullOrWhiteSpace(searchTerm))
-            {
-                var playListMatchStage = new BsonDocument("$match", new BsonDocument
-                   {
-                    { "PlayListId", playListId },
-                    { "IsDeleted", false },
-                    { "$text", new BsonDocument { { "$search", searchTerm } } }
-                   });
+             else if (playListId != ObjectId.Empty && channelId == ObjectId.Empty && !string.IsNullOrWhiteSpace(searchTerm))
+             {
+                 var playListMatchStage = new BsonDocument("$match", new BsonDocument
+                    {
+                     { "PlayListId", playListId },
+                     { "IsDeleted", false },
+                     { "$text", new BsonDocument { { "$search", searchTerm } } }
+                    });
 
-                pipeline.Add(playListMatchStage);
-            }
+                 pipeline.Add(playListMatchStage);
+             }
 
-            else if (playListId == ObjectId.Empty && channelId != ObjectId.Empty && !string.IsNullOrWhiteSpace(searchTerm))
-            {
-                var playListMatchStage = new BsonDocument("$match", new BsonDocument
-                   {
-                    { "ChannelId", channelId },
-                    { "IsDeleted", false },
-                    { "$text", new BsonDocument { { "$search", searchTerm } } }
-                   });
+             else if (playListId == ObjectId.Empty && channelId != ObjectId.Empty && !string.IsNullOrWhiteSpace(searchTerm))
+             {
+                 var playListMatchStage = new BsonDocument("$match", new BsonDocument
+                    {
+                     { "ChannelId", channelId },
+                     { "IsDeleted", false },
+                     { "$text", new BsonDocument { { "$search", searchTerm } } }
+                    });
 
-                pipeline.Add(playListMatchStage);
-            }
-
-
+                 pipeline.Add(playListMatchStage);
+             }
 
 
 
-            pipeline.Add(new BsonDocument("$lookup", new BsonDocument
-    {
-        { "from", "Channels" },
-        { "localField", "ChannelId" },
-        { "foreignField", "_id" },
-        { "as", "channel" }
-    }));
-
-            pipeline.Add(new BsonDocument("$unwind", "$channel"));
-
-            pipeline.Add(new BsonDocument("$lookup", new BsonDocument
-    {
-        { "from", "Likes" },
-        { "localField", "_id" },
-        { "foreignField", "VideoId" },
-        { "as", "likes" }
-    }));
-
-            pipeline.Add(new BsonDocument("$lookup", new BsonDocument
-    {
-        { "from", "Views" },
-        { "localField", "_id" },
-        { "foreignField", "VideoId" },
-        { "as", "views" }
-    }));
-
-            pipeline.Add(new BsonDocument("$lookup", new BsonDocument
-    {
-        { "from", "Comments" },
-        { "localField", "_id" },
-        { "foreignField", "VideoId" },
-        { "as", "comments" }
-    }));
-
-            pipeline.Add(new BsonDocument("$lookup", new BsonDocument
-    {
-        { "from", "CommentReplies" },
-        { "localField", "comments._id" },
-        { "foreignField", "CommentId" },
-        { "as", "commentReplies" }
-    }));
-
-            pipeline.Add(new BsonDocument("$lookup", new BsonDocument
-    {
-        { "from", "Likes" },
-        { "let", new BsonDocument("videoId", "$_id") },
-        { "pipeline", new BsonArray
-            {
-                new BsonDocument("$match", new BsonDocument
-                {
-                    { "$expr", new BsonDocument("$and", new BsonArray
-                        {
-                            new BsonDocument("$eq", new BsonArray { "$VideoId", "$$videoId" }), // Match VideoId
-                            new BsonDocument("$eq", new BsonArray { "$UserId", userId }) // Match UserId
-                        })
-                    }
-                })
-            }
-        },
-        { "as", "userLikes" }
-    }));
-
-            pipeline.Add(new BsonDocument("$lookup", new BsonDocument
-    {
-        { "from", "WatchHistory" },
-        { "let", new BsonDocument("videoId", "$_id") },
-        { "pipeline", new BsonArray
-            {
-                new BsonDocument("$match", new BsonDocument
-                {
-                    { "$expr", new BsonDocument("$and", new BsonArray
-                        {
-                            new BsonDocument("$eq", new BsonArray { "$VideoId", "$$videoId" }), // Match VideoId
-                            new BsonDocument("$eq", new BsonArray { "$UserId", userId }) // Match UserId
-                        })
-                    }
-                })
-            }
-        },
-        { "as", "userWatchHistory" }
-    }));
 
 
-            pipeline.Add(new BsonDocument("$project", new BsonDocument
-    {
-        { "_id", 1 },
-        { "ChannelId", 1 },
-        { "Thumbnail", 1 },
-        { "Url", 1 },
-        { "CreatedAt", 1 },
-        { "ChannelName", "$channel.Name" },
-        { "CoverUrl", "$channel.CoverUrl" },
-        { "Title", 1 },
-        { "Description", 1 },
-        { "Duration", 1 },
-        { "PlayListId", 1 },
-        { "TotalLikes", new BsonDocument("$size", "$likes") },
-        { "TotalViews", new BsonDocument("$size", "$views") },
-        { "TotalComments", new BsonDocument("$size", "$comments") },
-        { "TotalReplies", new BsonDocument("$size", "$commentReplies") },
-        { "TotalCommentsAndReplies", new BsonDocument("$add", new BsonArray { new BsonDocument("$size", "$comments"), new BsonDocument("$size", "$commentReplies") }) },
-        { "TotalDislikes", new BsonDocument("$size", new BsonDocument("$filter", new BsonDocument
-            {
-                { "input", "$likes" },
-                { "as", "like" },
-                { "cond", new BsonDocument("$eq", new BsonArray { "$$like.IsLiked", false }) }
-            }))
-        },
-        {
-            "HasUserLiked", new BsonDocument("$cond", new BsonArray
-            {
-                new BsonDocument("$gt", new BsonArray { new BsonDocument("$size", "$userLikes"), 0 }), // Check if userLikes array has elements
-                new BsonDocument("$arrayElemAt", new BsonArray { "$userLikes.IsLiked", 0 }), // If yes, return the value of IsLiked
-                BsonNull.Value // If not, return null
-            })
-        },
-        {
-            "DurationInHistory", new BsonDocument("$cond", new BsonArray
-            {
-                new BsonDocument("$gt", new BsonArray { new BsonDocument("$size", "$userWatchHistory"), 0 }), // Check if userWatchHistory array has elements
-                new BsonDocument("$arrayElemAt", new BsonArray { "$userWatchHistory.DurationViewed", 0 }), // If yes, return the value of DurationViewed
-                BsonNull.Value // If not, return null
-            })
-        }
-    }));
+             pipeline.Add(new BsonDocument("$lookup", new BsonDocument
+     {
+         { "from", "Channels" },
+         { "localField", "ChannelId" },
+         { "foreignField", "_id" },
+         { "as", "channel" }
+     }));
 
-            // Pagination: Skip records and limit to the page size
-            pipeline.Add(new BsonDocument("$skip", (pageNumber - 1) * pageSize));
-            pipeline.Add(new BsonDocument("$limit", pageSize));
-            pipeline.Add(new BsonDocument("$sort", new BsonDocument("CreatedAt",model.SortOrder ?? 1)));
+             pipeline.Add(new BsonDocument("$unwind", "$channel"));
 
-            var aggregateOptions = new AggregateOptions { AllowDiskUse = true };
+             pipeline.Add(new BsonDocument("$lookup", new BsonDocument
+     {
+         { "from", "Likes" },
+         { "localField", "_id" },
+         { "foreignField", "VideoId" },
+         { "as", "likes" }
+     }));
 
-            // Execute the aggregation pipeline
-            var cursor = await _collection.AggregateAsync<DBVideoModel>(pipeline, aggregateOptions);
+             pipeline.Add(new BsonDocument("$lookup", new BsonDocument
+     {
+         { "from", "Views" },
+         { "localField", "_id" },
+         { "foreignField", "VideoId" },
+         { "as", "views" }
+     }));
 
-            var result = await cursor.ToListAsync();
-            return result;
-        }
-*/
+             pipeline.Add(new BsonDocument("$lookup", new BsonDocument
+     {
+         { "from", "Comments" },
+         { "localField", "_id" },
+         { "foreignField", "VideoId" },
+         { "as", "comments" }
+     }));
+
+             pipeline.Add(new BsonDocument("$lookup", new BsonDocument
+     {
+         { "from", "CommentReplies" },
+         { "localField", "comments._id" },
+         { "foreignField", "CommentId" },
+         { "as", "commentReplies" }
+     }));
+
+             pipeline.Add(new BsonDocument("$lookup", new BsonDocument
+     {
+         { "from", "Likes" },
+         { "let", new BsonDocument("videoId", "$_id") },
+         { "pipeline", new BsonArray
+             {
+                 new BsonDocument("$match", new BsonDocument
+                 {
+                     { "$expr", new BsonDocument("$and", new BsonArray
+                         {
+                             new BsonDocument("$eq", new BsonArray { "$VideoId", "$$videoId" }), // Match VideoId
+                             new BsonDocument("$eq", new BsonArray { "$UserId", userId }) // Match UserId
+                         })
+                     }
+                 })
+             }
+         },
+         { "as", "userLikes" }
+     }));
+
+             pipeline.Add(new BsonDocument("$lookup", new BsonDocument
+     {
+         { "from", "WatchHistory" },
+         { "let", new BsonDocument("videoId", "$_id") },
+         { "pipeline", new BsonArray
+             {
+                 new BsonDocument("$match", new BsonDocument
+                 {
+                     { "$expr", new BsonDocument("$and", new BsonArray
+                         {
+                             new BsonDocument("$eq", new BsonArray { "$VideoId", "$$videoId" }), // Match VideoId
+                             new BsonDocument("$eq", new BsonArray { "$UserId", userId }) // Match UserId
+                         })
+                     }
+                 })
+             }
+         },
+         { "as", "userWatchHistory" }
+     }));
+
+
+             pipeline.Add(new BsonDocument("$project", new BsonDocument
+     {
+         { "_id", 1 },
+         { "ChannelId", 1 },
+         { "Thumbnail", 1 },
+         { "Url", 1 },
+         { "CreatedAt", 1 },
+         { "ChannelName", "$channel.Name" },
+         { "CoverUrl", "$channel.CoverUrl" },
+         { "Title", 1 },
+         { "Description", 1 },
+         { "Duration", 1 },
+         { "PlayListId", 1 },
+         { "TotalLikes", new BsonDocument("$size", "$likes") },
+         { "TotalViews", new BsonDocument("$size", "$views") },
+         { "TotalComments", new BsonDocument("$size", "$comments") },
+         { "TotalReplies", new BsonDocument("$size", "$commentReplies") },
+         { "TotalCommentsAndReplies", new BsonDocument("$add", new BsonArray { new BsonDocument("$size", "$comments"), new BsonDocument("$size", "$commentReplies") }) },
+         { "TotalDislikes", new BsonDocument("$size", new BsonDocument("$filter", new BsonDocument
+             {
+                 { "input", "$likes" },
+                 { "as", "like" },
+                 { "cond", new BsonDocument("$eq", new BsonArray { "$$like.IsLiked", false }) }
+             }))
+         },
+         {
+             "HasUserLiked", new BsonDocument("$cond", new BsonArray
+             {
+                 new BsonDocument("$gt", new BsonArray { new BsonDocument("$size", "$userLikes"), 0 }), // Check if userLikes array has elements
+                 new BsonDocument("$arrayElemAt", new BsonArray { "$userLikes.IsLiked", 0 }), // If yes, return the value of IsLiked
+                 BsonNull.Value // If not, return null
+             })
+         },
+         {
+             "DurationInHistory", new BsonDocument("$cond", new BsonArray
+             {
+                 new BsonDocument("$gt", new BsonArray { new BsonDocument("$size", "$userWatchHistory"), 0 }), // Check if userWatchHistory array has elements
+                 new BsonDocument("$arrayElemAt", new BsonArray { "$userWatchHistory.DurationViewed", 0 }), // If yes, return the value of DurationViewed
+                 BsonNull.Value // If not, return null
+             })
+         }
+     }));
+
+             // Pagination: Skip records and limit to the page size
+             pipeline.Add(new BsonDocument("$skip", (pageNumber - 1) * pageSize));
+             pipeline.Add(new BsonDocument("$limit", pageSize));
+             pipeline.Add(new BsonDocument("$sort", new BsonDocument("CreatedAt",model.SortOrder ?? 1)));
+
+             var aggregateOptions = new AggregateOptions { AllowDiskUse = true };
+
+             // Execute the aggregation pipeline
+             var cursor = await _collection.AggregateAsync<DBVideoModel>(pipeline, aggregateOptions);
+
+             var result = await cursor.ToListAsync();
+             return result;
+         }
+ */
 
 
 
@@ -318,13 +318,18 @@ namespace FirstApp.Persistence.Repository
             var isChannelIdValid = ObjectId.TryParse(model.ChannelId, out channelId);
             var isPlayListIdValid = ObjectId.TryParse(model.PlayListId, out playListId);
 
-            if ((!isPlayListIdValid && !isChannelIdValid && string.IsNullOrWhiteSpace(searchTerm)))
-                return new List<DBVideoModel>();
+
 
             var pageNumber = model.PageNumber;
             var pageSize = model.PageSize;
 
-            if (playListId == ObjectId.Empty && channelId == ObjectId.Empty && !string.IsNullOrWhiteSpace(searchTerm))
+            if ((playListId == ObjectId.Empty && channelId == ObjectId.Empty && string.IsNullOrWhiteSpace(searchTerm)))
+            {
+                var emptyStage = new BsonDocument("$match", new BsonDocument());
+                pipeline.Add(emptyStage);
+            }
+
+            else if (playListId == ObjectId.Empty && channelId == ObjectId.Empty && !string.IsNullOrWhiteSpace(searchTerm))
             {
                 var textSearchStage = new BsonDocument("$match", new BsonDocument
                    {

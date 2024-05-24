@@ -11,5 +11,6 @@ namespace FirstApp.Application.Abstractions.IServices
     public interface ILikesService
     {
         Task<APIResponse<int>> AddLike(LikeRequest model);
+        Task<APIResponse<List<LikedVideoResponse>>> FetchUserlikedVideos(FilterModel model);
     }
 }

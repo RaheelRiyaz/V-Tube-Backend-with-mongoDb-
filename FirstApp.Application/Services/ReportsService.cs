@@ -453,7 +453,7 @@ namespace FirstApp.Application.Services
             {
                 CounteredBy = _.CounteredBy.ToString(),
                 EntityId = _.EntityId.ToString(),
-                InspectedBy = _.InspectedBy.ToString() ,
+                InspectedBy = _.InspectedBy is null ? default : _.InspectedBy.ToString(),
                 InspectedAt = _.InspectedAt,
                 HasJustified = _.HasJustified,
                 CreatedAt = _.CreatedAt,

@@ -123,5 +123,33 @@ namespace FirstApp.Application.Services
 
             return APIResponse<int>.ErrorResponse();
         }
+
+        public async Task<APIResponse<List<LikedVideoResponse>>> FetchUserlikedVideos(FilterModel model)
+        {
+            var userId = ObjectId.Parse("6639bb42c92b6748cb77c6fa");
+            //var userId = contextService.GetUserId();
+
+            if (userId == ObjectId.Empty)
+                return APIResponse<List<LikedVideoResponse>>.ErrorResponse("Not authorized");
+
+            var likedVideos = await repository.FetchUserLikedVideos(model, userId);
+
+            var response = likedVideos.Select(_ => new LikedVideoResponse
+            {
+                ChannelName = _.ChannelName,
+                CreatedAt = _.CreatedAt,
+                Description = _.Description,
+                Duration = _.Duration,
+                DurationWatched = _.DurationWatched,
+                Id = _.Id.ToString(),
+                Thumbnail  =_.Thumbnail,
+                Title = _.Title,
+                Url = _.Url,
+                VideoId = _.VideoId.ToString(),
+                Views = _.Views
+            }).ToList();
+
+            return APIResponse<List<LikedVideoResponse>>.SuccessResponse(response, "Liked videos fetched");
+        }
     }
 }

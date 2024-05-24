@@ -13,5 +13,10 @@ namespace FirstApp.Controllers
         [HttpPost]
         public async Task<APIResponse<int>> AddLike(LikeRequest model) =>
             await service.AddLike(model);
+
+
+        [HttpPost("fetch-liked-videos")]
+        public async Task<APIResponse<List<LikedVideoResponse>>> FetchUserlikedVideos(FilterModel model) =>
+            await service.FetchUserlikedVideos(model);
     }
 }

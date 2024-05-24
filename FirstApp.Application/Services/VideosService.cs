@@ -48,9 +48,6 @@ namespace FirstApp.Application.Services
 
         public async Task<APIResponse<List<VideoViewModel>>> FetchVideosByChannel(VideoFilter model)
         {
-            if (model.ChannelId is null && model.PlayListId is null && model.Term is null)
-                return APIResponse<List<VideoViewModel>>.ErrorResponse("Please provide a PlayListId or term or a ChannelId");
-
             var userId = ObjectId.Parse("6639bb42c92b6748cb77c6fa");
             //var userId = contextService.GetUserId();
 

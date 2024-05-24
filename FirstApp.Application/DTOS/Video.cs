@@ -100,4 +100,29 @@ namespace FirstApp.Application.DTOS
         int PageSize,
         int? SortOrder
         );
+
+
+    public class LikedVideoDBResponse : LikedVideoBaseResponse
+    {
+        public ObjectId Id { get; set; }
+        public ObjectId VideoId { get; set; }
+    }
+
+    public class LikedVideoResponse : LikedVideoBaseResponse
+    {
+        public string Id { get; set; } = null!;
+        public string VideoId { get; set; } = null!;
+    }
+    public class LikedVideoBaseResponse
+    {
+        public string Title { get; set; } = null!;
+        public string Url { get; set; } = null!;
+        public string Description { get; set; } = null!;
+        public string ChannelName { get; set; } = null!;
+        public string Thumbnail { get; set; } = null!;
+        public string Duration { get; set; } = null!;
+        public string? DurationWatched { get; set; } = null!;
+        public DateTime CreatedAt { get; set; }
+        public int Views { get; set; }
+    }
 }
