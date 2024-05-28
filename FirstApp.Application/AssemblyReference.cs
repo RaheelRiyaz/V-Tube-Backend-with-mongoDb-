@@ -27,6 +27,7 @@ namespace FirstApp.Application
             services.AddScoped<IWatchLaterService, WatchLaterService>();
             services.AddScoped<IReportsService, ReportsService>();
             services.AddScoped<IReportContentTypesService, ReportContentTypesService>();
+            //services.AddHostedService<BackgroundService>();
             return services;
         }
     }
